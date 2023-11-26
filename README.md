@@ -165,16 +165,7 @@ The configurable options for this plugin are as follows:
 ```lua
 {
   event = { "InsertEnter", "LspAttach" },
-  fix_pairs = true,
 }
 ```
 ##### event
 The event parameter configures when the source is registered. Unless you have a unique problem for your particular configuration you probably don't want to touch this.
-
-##### fix_pairs
-Suppose you have the following code:
-`print('h')`
-Copilot might try to account for the `'` and `)` and complete it with this:
-`print('hello`
-
-This is not good behavior for consistency reasons and will just end up deleting the two ending characters. This option fixes that. Don't turn this off unless you are having problems with pairs and believe this might be causing them.
