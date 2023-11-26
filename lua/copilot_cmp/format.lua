@@ -1,4 +1,5 @@
 local format = {}
+local pattern = require("copilot_cmp.pattern")
 
 local label_text = function(text)
   local shorten = function(str)
@@ -97,7 +98,9 @@ format.to_multi_line = function(item, ctx)
   end
 
   -- add text after cursor to end of text
-  text = text .. ctx.cursor_after_line
+  if not pattern.check_pairs(text) then
+    text = text .. ctx.cursor_after_line
+  end
 
   -- get abbreviated label
   local label = label_text(text)
