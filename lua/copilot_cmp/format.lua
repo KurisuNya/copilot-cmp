@@ -99,8 +99,8 @@ format.to_multi_line = function(item, ctx)
 
   -- add text after cursor to end of text
   if not pattern.check_pairs(text) then
-    if pattern.check_pairs(text .. ctx.cursor_after_line) then
-      text = text .. ctx.cursor_after_line
+    if pattern.check_pairs(text .. (ctx.cursor_after_line or "")) then
+      text = text .. (ctx.cursor_after_line or "")
     end
   end
 
